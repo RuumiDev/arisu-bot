@@ -1,0 +1,23 @@
+2025/07/03-14:35:28.773 3a2c Reusing MANIFEST D:\Hirumi's D\Miki\Downloads\Code\arisu-bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/07/03-14:35:28.774 3a2c Recovering log #769
+2025/07/03-14:35:28.833 3a2c Reusing old log D:\Hirumi's D\Miki\Downloads\Code\arisu-bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000769.log 
+2025/07/03-14:35:30.782 3a2c Level-0 table #779: started
+2025/07/03-14:35:30.801 3a2c Level-0 table #779: 360107 bytes OK
+2025/07/03-14:35:30.802 3a2c Delete type=0 #769
+2025/07/03-14:35:30.802 3a2c Manual compaction at level-0 from '\x00s\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00t\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/07/03-14:35:33.050 3a2c Compacting 1@1 + 6@2 files
+2025/07/03-14:35:33.195 3a2c Generated table #780@1: 84969 keys, 2234155 bytes
+2025/07/03-14:35:33.351 3a2c Generated table #781@1: 88623 keys, 2303532 bytes
+2025/07/03-14:35:33.423 3a2c Generated table #782@1: 9999 keys, 2238099 bytes
+2025/07/03-14:35:33.488 3a2c Generated table #783@1: 6430 keys, 2146182 bytes
+2025/07/03-14:35:33.587 3a2c Generated table #784@1: 26868 keys, 2210167 bytes
+2025/07/03-14:35:33.746 3a2c Generated table #785@1: 109714 keys, 2240138 bytes
+2025/07/03-14:35:33.746 3a2c Compacted 1@1 + 6@2 files => 13372273 bytes
+2025/07/03-14:35:33.747 3a2c compacted to: files[ 0 0 6 0 0 0 0 ]
+2025/07/03-14:35:33.748 3a2c Delete type=2 #771
+2025/07/03-14:35:33.748 3a2c Delete type=2 #772
+2025/07/03-14:35:33.748 3a2c Delete type=2 #773
+2025/07/03-14:35:33.748 3a2c Delete type=2 #774
+2025/07/03-14:35:33.748 3a2c Delete type=2 #775
+2025/07/03-14:35:33.748 3a2c Delete type=2 #776
+2025/07/03-14:35:33.748 3a2c Delete type=2 #779

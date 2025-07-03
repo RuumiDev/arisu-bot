@@ -1,0 +1,23 @@
+2025/07/03-14:57:44.680 8c20 Reusing MANIFEST D:\Hirumi's D\Miki\Downloads\Code\arisu-bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/07/03-14:57:44.688 8c20 Recovering log #778
+2025/07/03-14:57:44.712 8c20 Reusing old log D:\Hirumi's D\Miki\Downloads\Code\arisu-bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000778.log 
+2025/07/03-14:57:49.812 4bbc Level-0 table #788: started
+2025/07/03-14:57:49.834 4bbc Level-0 table #788: 161847 bytes OK
+2025/07/03-14:57:49.836 4bbc Delete type=0 #778
+2025/07/03-14:57:49.837 4bbc Manual compaction at level-0 from '\x00t\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00u\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/07/03-14:57:51.979 4bbc Compacting 1@1 + 6@2 files
+2025/07/03-14:57:52.124 4bbc Generated table #789@1: 85029 keys, 2233582 bytes
+2025/07/03-14:57:52.245 4bbc Generated table #790@1: 89243 keys, 2305214 bytes
+2025/07/03-14:57:52.299 4bbc Generated table #791@1: 10019 keys, 2243230 bytes
+2025/07/03-14:57:52.359 4bbc Generated table #792@1: 6334 keys, 2145763 bytes
+2025/07/03-14:57:52.445 4bbc Generated table #793@1: 26943 keys, 2211610 bytes
+2025/07/03-14:57:52.624 4bbc Generated table #794@1: 109744 keys, 2247399 bytes
+2025/07/03-14:57:52.624 4bbc Compacted 1@1 + 6@2 files => 13386798 bytes
+2025/07/03-14:57:52.625 4bbc compacted to: files[ 0 0 6 0 0 0 0 ]
+2025/07/03-14:57:52.625 4bbc Delete type=2 #780
+2025/07/03-14:57:52.626 4bbc Delete type=2 #781
+2025/07/03-14:57:52.626 4bbc Delete type=2 #782
+2025/07/03-14:57:52.626 4bbc Delete type=2 #783
+2025/07/03-14:57:52.626 4bbc Delete type=2 #784
+2025/07/03-14:57:52.626 4bbc Delete type=2 #785
+2025/07/03-14:57:52.626 4bbc Delete type=2 #788

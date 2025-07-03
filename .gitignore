@@ -1,0 +1,32 @@
+.env
+node_modules/
+# Dependencies
+node_modules/
+
+# Secrets and environment configs
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific
+.DS_Store        # macOS
+Thumbs.db        # Windows
+
+# Editor-specific
+.vscode/
+.idea/
+
+# Runtime output (optional)
+dist/
+build/
+*.log
+
+# PM2 logs (if using PM2)
+pids/
+logs/
+*.pid
+*.seed
+*.pid.lock

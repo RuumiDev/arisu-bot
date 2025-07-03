@@ -1,0 +1,72 @@
+{
+  "June 2025": {
+    "aiman": {
+      "electricity": "paid",
+      "water": "unpaid"
+    },
+    "harith": {
+      "electricity": "paid",
+      "water": "unpaid"
+    },
+    "mukhridz": {
+      "electricity": "paid",
+      "water": "unpaid"
+    },
+    "akmal": {
+      "electricity": "paid",
+      "water": "paid"
+    },
+    "danial": {
+      "electricity": "paid",
+      "water": "unpaid"
+    },
+    "izwan": {
+      "electricity": "paid",
+      "water": "unpaid"
+    },
+    "dennis": {
+      "electricity": "unpaid",
+      "water": "unpaid"
+    },
+    "naufal": {
+      "electricity": "paid",
+      "water": "unpaid"
+    }
+  },
+  "July 2025": {
+    "izwan": {
+      "electricity": "unpaid",
+      "wifi": "unpaid",
+      "water": "unpaid"
+    },
+    "akmal": {
+      "electricity": "unpaid",
+      "wifi": "unpaid",
+      "water": "unpaid"
+    },
+    "mukhridz": {
+      "electricity": "unpaid",
+      "wifi": "unpaid",
+      "water": "unpaid"
+    },
+    "aiman": {
+      "electricity": "unpaid",
+      "water": "unpaid"
+    },
+    "daniel": {
+      "electricity": "unpaid",
+      "wifi": "unpaid",
+      "water": "unpaid"
+    },
+    "dennis": {
+      "electricity": "unpaid",
+      "wifi": "unpaid",
+      "water": "unpaid"
+    },
+    "harith": {
+      "electricity": "unpaid",
+      "wifi": "unpaid",
+      "water": "unpaid"
+    }
+  }
+}
