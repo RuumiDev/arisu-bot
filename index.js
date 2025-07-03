@@ -2202,33 +2202,33 @@ client.on('message', async message => {
         }
          else {
                     message.reply(
-                 `_*Welcome to the Admin Panel, Hirumi Sensei. What would you like to do?*_
-                        
-             🛡 *Arisu's Admin commands:*
-                        
-             • *!shutdown* - _Shutdown the bot_
-             • *!restart* - _Restart the bot_
-             • *!report* - _Get system report_
-             • *!warn @user* - _Warn a user_
-             • *!warnings @user*  - _Check warnings for a user_
-             • *!mute @user [time]* - _Mute a user for a specified time (e.g. !mute @user 10s)_
-             • *!unmute @user* - _Unmute a user_
-             • *!announce [message]* - _Send an announcement to all users_
-                        
-             🛡 *Goodbye and Welcome ~*
-                        
-             • *!setwelcome [message]* - _Set a custom welcome message for new group members_
-             • *!setgoodbye [message]* - _Set a custom goodbye message for leaving members_
-             • *!testwelcome* - _Test the current welcome message_
-             • *!testgoodbye* - _Test the current goodbye message_
-                        
-             🛡 *Admins ~*
-                        
-             • *!addadmin @user* - _Add a user to the admin list_
-             • *!removeadmin @user* - _Remove a user from the admin list_
-             • *!admin* - _Show this admin panel_
-                        
-             _*Are we eliminating anyone today, Sensei?*_`
+`_*Welcome to the Admin Panel, Hirumi Sensei. What would you like to do?*_
+                   
+ 🛡 *Arisu's Admin commands:*
+                   
+• *!shutdown* - _Shutdown the bot_
+• *!restart* - _Restart the bot_
+• *!report* - _Get system report_
+• *!warn @user* - _Warn a user_
+• *!warnings @user*  - _Check warnings for a user_
+• *!mute @user [time]* - _Mute a user for a specified time (e.g. !mute @user 10s)_
+• *!unmute @user* - _Unmute a user_
+• *!announce [message]* - _Send an announcement to all users_
+             
+  🛡 *Goodbye and Welcome ~*
+             
+• *!setwelcome [message]* - _Set a custom welcome message for new group members_
+• *!setgoodbye [message]* - _Set a custom goodbye message for leaving members_
+• *!testwelcome* - _Test the current welcome message_
+• *!testgoodbye* - _Test the current goodbye message_
+             
+  🛡 *Admins ~*
+             
+• *!addadmin @user* - _Add a user to the admin list_
+• *!removeadmin @user* - _Remove a user from the admin list_
+• *!admin* - _Show this admin panel_
+             
+  _*Are we eliminating anyone today, Sensei?*_`
             );
         }
      }
@@ -2237,47 +2237,47 @@ client.on('message', async message => {
     // Help menu
     if (textLower === '!help') {
         message.reply(
-        `🧭 *Arisu Command Index:*
+   `🧭 *Arisu Command Index:*
 
-        • *!id* – _Gets your personal message ID_
-        • *!arisu* – _Wake me_
-        • *!hello / !hi / !hey* – _Greet Arisu_
-        • *!ping* – _Connectivity test_
-        • *!quote* – _Receive motivational data_
-        • *!about* – _System information_
-        • *!say [message]* – _Make me say something_
-        • *!register* [name] – _Register your name for personalized responses_
-        • *!admin* – _Admin only: Access admin commands_
-        • *!help* – _Show this menu_
+• *!id* – _Gets your personal message ID_
+• *!arisu* – _Wake me_
+• *!hello / !hi / !hey* – _Greet Arisu_
+• *!ping* – _Connectivity test_
+• *!quote* – _Receive motivational data_
+• *!about* – _System information_
+• *!say [message]* – _Make me say something_
+• *!register* [name] – _Register your name for personalized responses_
+• *!admin* – _Admin only: Access admin commands_
+• *!help* – _Show this menu_
 
-        🧭 *Utility Commands:*
+  🧭 *Utility Commands:*
 
-        • *!time* – _Get current time_
-        • *!date* – _Get today's date_
-        • *!remind [time] [message]* – _Set a reminder (e.g. !remind 10s drink water)_
-        • *!link* – _Important links_
-        • *!afk [reason]* – _Set AFK status_
-        • *!back* – _Remove AFK status_
-        • *!todo [task] / list / done [num]* – _Manage your to-do list_
-        • *!quote [add / random / list]* – _Manage quotes_
-        • *!bills [add / list / done [num] ]* – _Manage bills_
-        • *!event [add / list]* – _Manage events_
+• *!time* – _Get current time_
+• *!date* – _Get today's date_
+• *!remind [time] [message]* – _Set a reminder (e.g. !remind 10s drink water)_
+• *!link* – _Important links_
+• *!afk [reason]* – _Set AFK status_
+• *!back* – _Remove AFK status_
+• *!todo [task] / list / done [num]* – _Manage your to-do list_
+• *!quote [add / random / list]* – _Manage quotes_
+• *!bills [add / list / done [num] ]* – _Manage bills_
+• *!event [add / list]* – _Manage events_
 
 
-        🧭 *Fun Commands:*
+  🧭 *Fun Commands:*
 
-        • *!mal [anime]* – _Search MyAnimeList for an anime_
-        • *!quoteanime* – _Get an anime quote_
-        • *!waifu* – _Get a random waifu image_
-        • *!gacha* – _Roll for a random anime character_
-        • *!nyaa* – _Toggle Nyaa mode for cute responses_
-        • *!reactions* – _List available reactions_
-        • *!roll* – _Roll a dice_
-        • *!cat* – _Get a random cat image_
-        • *!sticker* – _Converts Image to Sticker_
-        • *!unsticker* – _Converts Sticker to Image_
+• *!mal [anime]* – _Search MyAnimeList for an anime_
+• *!quoteanime* – _Get an anime quote_
+• *!waifu* – _Get a random waifu image_
+• *!gacha* – _Roll for a random anime character_
+• *!nyaa* – _Toggle Nyaa mode for cute responses_
+• *!reactions* – _List available reactions_
+• *!roll* – _Roll a dice_
+• *!cat* – _Get a random cat image_
+• *!sticker* – _Converts Image to Sticker_
+• *!unsticker* – _Converts Sticker to Image_
 
-        _*Awaiting further instructions, Sensei!*_`
+_*Awaiting further instructions, Sensei!*_`
                 );
     }
 
@@ -2286,58 +2286,56 @@ client.on('message', async message => {
     if (textLower === '!reactions') {
         message.reply(
         `
-        🧭 *Custom Reactions:*
+  🧭 *Custom Reactions:*
 
-        • *!hug* – _Send a hug gif_
-        • *!pat* – _Send a pat gif_
-        • *!bonk* – _Send a bonk gif_
-        • *!kiss* – _Send a kiss gif_
-        • *!slap* – _Send a slap gif_
-        • *!poke* – _Send a poke gif_
-        • *!cuddle* – _Send a cuddle gif_
-        • *!lick – _Send a lick gif_
-        • *!handhold* – _Send a handhold gif_
-        • *!highfive* – _Send a high-five gif_
-        • *!wave* – _Send a wave gif_
-        • *!stare* – _Send a stare gif_
-        • *!wink* – _Send a wink gif_
-        • *!blush* – _Send a blush gif_
-        • *!cry* – _Send a cry gif_
-        • *!pout* – _Send a pout gif_
-        •
+• *!hug* – _Send a hug gif_
+• *!pat* – _Send a pat gif_
+• *!bonk* – _Send a bonk gif_
+• *!kiss* – _Send a kiss gif_
+• *!slap* – _Send a slap gif_
+• *!poke* – _Send a poke gif_
+• *!cuddle* – _Send a cuddle gif_
+• *!lick – _Send a lick gif_
+• *!handhold* – _Send a handhold gif_
+• *!highfive* – _Send a high-five gif_
+• *!wave* – _Send a wave gif_
+• *!stare* – _Send a stare gif_
+• *!wink* – _Send a wink gif_
+• *!blush* – _Send a blush gif_
+• *!cry* – _Send a cry gif_
+• *!pout* – _Send a pout gif_
 
-        _*Awaiting further instructions, Sensei!*_
-        `        );
+
+_*Awaiting further instructions, Sensei!*_
+`        );
     }
 
 
     // Rent Commands
      if (textLower === '!rent') {
         message.reply(
-        `🧭 *Arisu's Rent Commands:*
+  `🧭 *Arisu's Rent Commands:*
 
-        • *!rent addmember [name]* – _Add a new member to the rent tracker_
-        • *!rent addbill [bill name]* – _Add a new bill for all members_
-        • *!rent paid [name] [bill name]* – _Use comma-separated names to mark bills as paid_
-        • *!rent unpaid [name] [bill name]* – _Use comma-separated names to mark bills as unpaid_
+• *!rent addmember [name]* – _Add a new member to the rent tracker_
+• *!rent addbill [bill name]* – _Add a new bill for all members_
+• *!rent paid [name] [bill name]* – _Use comma-separated names to mark bills as paid_
+• *!rent unpaid [name] [bill name]* – _Use comma-separated names to mark bills as unpaid_
 
-        🧭 *Rent List Commands:*
+ 🧭 *Rent List Command*
+• *!rent list* – _List all members and their rent status_
+• *!rent list bill* – _List all bill and their rent status_
+• *!rent summary* – _Summarizes the bill_
+• *!rent status [bill name]* – _Shows the bill status for all members_
+• *!rent emoji [month]* – _Shows the summary in for the month/selected month in emoji graph_
 
-        • *!rent list* – _List all members and their rent status_
-        • *!rent list bill* – _List all bill and their rent status_
-        • *!rent summary* – _Summarizes the bill_
-        • *!rent status [bill name]* – _Shows the bill status for all members_
-        • *!rent emoji [month]* – _Shows the summary in for the month/selected month in emoji graph_
+ 🧭 *Rent Removal Command*
+• *!rent remove [member] [bill]* – _Removes member from the month/bill_
+• *!rent removebill* – _Removes bill from the month_
+• *!rent nextmonth* – _Initialize the next month with all members and bil_
 
-        🧭 *Rent Removal Commands:*
-
-        • *!rent remove [member] [bill]* – _Removes member from the month/bill_
-        • *!rent removebill* – _Removes bill from the month_
-
-        • *!rent nextmonth* – _Initialize the next month with all members and bills_
-
-        _*Awaiting further instructions, Sensei!*_
-        `        );    
+ 
+ _*Awaiting further instructions, Sensei!*_
+ `        );    
     }
             
 // 💤 Arisu-AI AFK Detection///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

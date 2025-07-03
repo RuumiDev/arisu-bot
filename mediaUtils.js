@@ -10,7 +10,7 @@ async function gifToMp4(gifUrl, outputName = 'reaction.mp4') {
   const gifPath = path.join(__dirname, 'temp.gif');
   const mp4Path = path.join(__dirname, outputName);//mp4
 
-  // 🔽 Download GIF
+  //  Download GIF
   const response = await axios({
     url: gifUrl,
     method: 'GET',
@@ -25,7 +25,7 @@ async function gifToMp4(gifUrl, outputName = 'reaction.mp4') {
     writer.on('error', reject);
   });
 
-  // 🔄 Convert to WhatsApp-safe MP4
+  //  Convert to WhatsApp-safe MP4
  
 await new Promise((resolve, reject) => {
           ffmpeg(gifPath)

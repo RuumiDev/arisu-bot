@@ -1,7 +1,9 @@
 // tenorUtils.js
 const axios = require('axios');
+require('dotenv').config();
 
-const TENOR_API_KEY = 'AIzaSyCoXDKP-qljTq17jhCzaB3pmTv5dUJ3jHw'; // Replace with actual API key
+const TENOR_API_KEY = process.env.TENOR_API_KEY;
+
 const TENOR_LIMIT = 1;
 
 async function fetchTenorGif(query) {

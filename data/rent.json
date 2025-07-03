@@ -36,37 +36,37 @@
   "July 2025": {
     "izwan": {
       "electricity": "unpaid",
-      "wifi": "unpaid",
-      "water": "unpaid"
+      "wifi": "paid",
+      "water": "paid"
     },
     "akmal": {
       "electricity": "unpaid",
-      "wifi": "unpaid",
-      "water": "unpaid"
+      "wifi": "paid",
+      "water": "paid"
     },
     "mukhridz": {
       "electricity": "unpaid",
-      "wifi": "unpaid",
-      "water": "unpaid"
+      "wifi": "paid",
+      "water": "paid"
     },
     "aiman": {
       "electricity": "unpaid",
-      "water": "unpaid"
+      "water": "paid"
     },
     "daniel": {
       "electricity": "unpaid",
-      "wifi": "unpaid",
-      "water": "unpaid"
+      "wifi": "paid",
+      "water": "paid"
     },
     "dennis": {
       "electricity": "unpaid",
-      "wifi": "unpaid",
-      "water": "unpaid"
+      "wifi": "paid",
+      "water": "paid"
     },
     "harith": {
       "electricity": "unpaid",
-      "wifi": "unpaid",
-      "water": "unpaid"
+      "wifi": "paid",
+      "water": "paid"
     }
   }
 }

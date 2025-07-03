@@ -11,22 +11,16 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# OS-specific
+# OS
 .DS_Store        # macOS
 Thumbs.db        # Windows
 
-# Editor-specific
+# Editor
 .vscode/
 .idea/
 
-# Runtime output (optional)
+# Runtime output 
 dist/
 build/
 *.log
 
-# PM2 logs (if using PM2)
-pids/
-logs/
-*.pid
-*.seed
-*.pid.lock
