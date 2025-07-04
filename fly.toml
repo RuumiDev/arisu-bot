@@ -8,10 +8,7 @@ primary_region = 'sin'
 
 [build]
 
-[deploy]
-  release_command = "node index.js"
-  strategy = "rolling"
-  regions = ["sin"]
+
 
 [http_service]
   internal_port = 3000
