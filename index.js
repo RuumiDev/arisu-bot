@@ -157,6 +157,22 @@ client.on('qr', qr => {
 });
 
 
+const express = require('express');
+const app = express();
+
+// Fly.io will provide PORT
+const PORT = process.env.PORT || 3000;
+
+
+app.get('/', (req, res) => {
+  res.send("Yossha~! Arisu's here and running! 💙");
+});
+
+app.listen(PORT, () => {
+  console.log(`Arisu is listening on port ${PORT}~! 🌸`);
+});
+
+
 client.on('ready', () => {
     console.log('🟢 Arisu system is online sensei ~!!!');
 });
