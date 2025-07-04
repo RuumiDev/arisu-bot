@@ -1,0 +1,48 @@
+2025/07/05-04:13:42.356 a284 Reusing MANIFEST D:\Hirumi's D\Miki\Downloads\Code\arisu-bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/07/05-04:13:42.357 a284 Recovering log #981
+2025/07/05-04:13:42.507 a284 Reusing old log D:\Hirumi's D\Miki\Downloads\Code\arisu-bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000981.log 
+2025/07/05-04:13:47.388 39d4 Level-0 table #992: started
+2025/07/05-04:13:47.427 39d4 Level-0 table #992: 858021 bytes OK
+2025/07/05-04:13:47.429 39d4 Delete type=0 #981
+2025/07/05-04:13:47.430 39d4 Manual compaction at level-0 from '\x00\x84\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x85\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/07/05-04:13:50.471 a284 Compacting 1@1 + 7@2 files
+2025/07/05-04:13:50.626 a284 Generated table #993@1: 85013 keys, 2234384 bytes
+2025/07/05-04:13:50.784 a284 Generated table #994@1: 99428 keys, 2250915 bytes
+2025/07/05-04:13:50.874 a284 Generated table #995@1: 39298 keys, 2349684 bytes
+2025/07/05-04:13:50.917 a284 Generated table #996@1: 2277 keys, 2142132 bytes
+2025/07/05-04:13:50.988 a284 Generated table #997@1: 13932 keys, 2184698 bytes
+2025/07/05-04:13:51.068 a284 Generated table #998@1: 28843 keys, 2190738 bytes
+2025/07/05-04:13:51.246 a284 Generated table #999@1: 112750 keys, 2259802 bytes
+2025/07/05-04:13:51.246 a284 Compacted 1@1 + 7@2 files => 15612353 bytes
+2025/07/05-04:13:51.247 a284 compacted to: files[ 0 0 7 0 0 0 0 ]
+2025/07/05-04:13:51.247 a284 Delete type=2 #983
+2025/07/05-04:13:51.247 a284 Delete type=2 #984
+2025/07/05-04:13:51.247 a284 Delete type=2 #985
+2025/07/05-04:13:51.247 a284 Delete type=2 #986
+2025/07/05-04:13:51.247 a284 Delete type=2 #987
+2025/07/05-04:13:51.247 a284 Delete type=2 #988
+2025/07/05-04:13:51.247 a284 Delete type=2 #989
+2025/07/05-04:13:51.247 a284 Delete type=2 #992
+2025/07/05-04:18:51.953 45cc Level-0 table #1001: started
+2025/07/05-04:18:51.995 45cc Level-0 table #1001: 414790 bytes OK
+2025/07/05-04:18:51.997 45cc Delete type=0 #991
+2025/07/05-04:18:51.998 45cc Manual compaction at level-0 from '\x00\x85\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x86\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/07/05-04:23:52.313 45cc Compacting 1@1 + 7@2 files
+2025/07/05-04:23:52.589 45cc Generated table #1002@1: 84960 keys, 2234971 bytes
+2025/07/05-04:23:52.695 45cc Generated table #1003@1: 99458 keys, 2252601 bytes
+2025/07/05-04:23:52.768 45cc Generated table #1004@1: 40783 keys, 2355548 bytes
+2025/07/05-04:23:52.797 45cc Generated table #1005@1: 2317 keys, 2147064 bytes
+2025/07/05-04:23:52.858 45cc Generated table #1006@1: 13486 keys, 2182353 bytes
+2025/07/05-04:23:52.930 45cc Generated table #1007@1: 26914 keys, 2191587 bytes
+2025/07/05-04:23:53.061 45cc Generated table #1008@1: 113682 keys, 2267718 bytes
+2025/07/05-04:23:53.066 45cc Generated table #1009@1: 1629 keys, 44808 bytes
+2025/07/05-04:23:53.066 45cc Compacted 1@1 + 7@2 files => 15676650 bytes
+2025/07/05-04:23:53.067 45cc compacted to: files[ 0 0 8 0 0 0 0 ]
+2025/07/05-04:23:53.068 45cc Delete type=2 #993
+2025/07/05-04:23:53.068 45cc Delete type=2 #994
+2025/07/05-04:23:53.068 45cc Delete type=2 #995
+2025/07/05-04:23:53.068 45cc Delete type=2 #996
+2025/07/05-04:23:53.068 45cc Delete type=2 #997
+2025/07/05-04:23:53.068 45cc Delete type=2 #998
+2025/07/05-04:23:53.068 45cc Delete type=2 #999
+2025/07/05-04:23:53.068 45cc Delete type=2 #1001

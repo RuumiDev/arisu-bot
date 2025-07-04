@@ -1,3 +1,2 @@
-2025/07/03-02:52:01.322 f844 Reusing MANIFEST D:\Hirumi's D\Miki\Downloads\Code\arisu-bot\.wwebjs_auth\session\Default\shared_proto_db\metadata/MANIFEST-000001
-2025/07/03-02:52:01.329 f844 Recovering log #3
-2025/07/03-02:52:01.330 f844 Reusing old log D:\Hirumi's D\Miki\Downloads\Code\arisu-bot\.wwebjs_auth\session\Default\shared_proto_db\metadata/000003.log 
+2025/07/05-05:41:21.578 fa00 Creating DB D:\Hirumi's D\Miki\Downloads\Code\arisu-bot\.wwebjs_auth\session\Default\shared_proto_db\metadata since it was missing.
+2025/07/05-05:41:21.583 fa00 Reusing MANIFEST D:\Hirumi's D\Miki\Downloads\Code\arisu-bot\.wwebjs_auth\session\Default\shared_proto_db\metadata/MANIFEST-000001

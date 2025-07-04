@@ -1,0 +1,25 @@
+2025/07/05-02:29:59.034 9978 Reusing MANIFEST D:\Hirumi's D\Miki\Downloads\Code\arisu-bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/07/05-02:29:59.035 9978 Recovering log #971
+2025/07/05-02:29:59.113 9978 Reusing old log D:\Hirumi's D\Miki\Downloads\Code\arisu-bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000971.log 
+2025/07/05-02:30:01.036 f89c Level-0 table #982: started
+2025/07/05-02:30:01.054 f89c Level-0 table #982: 514284 bytes OK
+2025/07/05-02:30:01.055 f89c Delete type=0 #971
+2025/07/05-02:30:01.056 f89c Manual compaction at level-0 from '\x00\x83\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x84\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/07/05-02:30:03.520 1418 Compacting 1@1 + 7@2 files
+2025/07/05-02:30:03.958 1418 Generated table #983@1: 84870 keys, 2233258 bytes
+2025/07/05-02:30:04.209 1418 Generated table #984@1: 99635 keys, 2253170 bytes
+2025/07/05-02:30:04.394 1418 Generated table #985@1: 36765 keys, 2347729 bytes
+2025/07/05-02:30:04.460 1418 Generated table #986@1: 2211 keys, 2145157 bytes
+2025/07/05-02:30:04.567 1418 Generated table #987@1: 15334 keys, 2190606 bytes
+2025/07/05-02:30:04.709 1418 Generated table #988@1: 33778 keys, 2190602 bytes
+2025/07/05-02:30:04.919 1418 Generated table #989@1: 105897 keys, 2129219 bytes
+2025/07/05-02:30:04.919 1418 Compacted 1@1 + 7@2 files => 15489741 bytes
+2025/07/05-02:30:04.920 1418 compacted to: files[ 0 0 7 0 0 0 0 ]
+2025/07/05-02:30:04.920 1418 Delete type=2 #973
+2025/07/05-02:30:04.920 1418 Delete type=2 #974
+2025/07/05-02:30:04.920 1418 Delete type=2 #975
+2025/07/05-02:30:04.920 1418 Delete type=2 #976
+2025/07/05-02:30:04.920 1418 Delete type=2 #977
+2025/07/05-02:30:04.921 1418 Delete type=2 #978
+2025/07/05-02:30:04.921 1418 Delete type=2 #979
+2025/07/05-02:30:04.921 1418 Delete type=2 #982
