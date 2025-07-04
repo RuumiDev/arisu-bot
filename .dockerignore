@@ -13,8 +13,7 @@ npm-debug.log
 tenor/
 stickers/
 
-.wwebjs_auth/
-session.json
+
 
 #fly config and git
 .fly
