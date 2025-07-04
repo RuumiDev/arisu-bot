@@ -91,7 +91,7 @@ Rent.saveRent(rentData);
 const rentDataPath = loadJSON(rentPath); // Load rent data from file
 
 
-const { isAdmin } = require('./utils/admin'); // Admin check utility
+const { isAdmin, loadAdmins, saveAdmins } = require('./utils/admin'); // Admin check utility
 const mime = require('mime-types'); // For handling file types
 
 /*console.log("SAVING RENT DATA:", rentData);
