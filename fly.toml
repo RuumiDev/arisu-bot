@@ -8,13 +8,18 @@ primary_region = 'sin'
 
 [build]
 
+[deploy]
+  release_command = "node index.js"
+  strategy = "rolling"
+  regions = ["sin"]
+
 [http_service]
   internal_port = 3000
   force_https = true
   auto_stop_machines = false
   auto_start_machines = true
   min_machines_running = 1
-  processes = ['app']
+  processes = ['app']  
 
 [[vm]]
   memory = '1gb'
