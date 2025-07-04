@@ -4,3 +4,18 @@
 .env
 Dockerfile
 fly.toml
+.DS_Store
+*.zip
+npm-debug.log
+*.log
+
+
+tenor/
+stickers/
+
+.wwebjs_auth/
+session.json
+
+#fly config and git
+.fly
+.git
