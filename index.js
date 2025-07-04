@@ -182,6 +182,7 @@ app.listen(PORT, () => {
 
 client.on('ready', async () => {
   console.log('🟢 Arisu system is online sensei ~!!!');
+   
   // Delay to avoid race conditions with internal WhatsApp comms
   setTimeout(() => {
     isWhatsAppReady = true;
@@ -406,49 +407,28 @@ client.on('message', async message => {
 
 
     
-   // Patch .reply
-    const originalReply = message.reply.bind(message);
-    message.reply = async function patchedReply(content) {
-     if (!isWhatsAppReady) {
-       console.warn('[WAIT] WhatsApp not ready — skipping reply:', content);
-       return;
-     }
-     try {
-       await originalReply(content);
-     } catch (err) {
-       console.error('[Reply Error]', err.message);
-     }
-    };
-
-    // Patch .react
-    const originalReact = message.react.bind(message);
-    message.react = async function patchedReact(emoji) {
-      if (!isWhatsAppReady) {
-        console.warn('[WAIT] WhatsApp not ready — skipping react:', emoji);
-        return;
-      }
-      try {
-        await originalReact(emoji);
-      } catch (err) {
-        console.error('[React Error]', err.message);
-  }
-    };
-
-    // Patch .forward (if used)
-    if (message.forward) {
-     const originalForward = message.forward.bind(message);
-     message.forward = async function patchedForward(chatId) {
-       if (!isWhatsAppReady) {
-         console.warn('[WAIT] WhatsApp not ready — skipping forward');
-         return;
-       }
-       try {
-         await originalForward(chatId);
-       } catch (err) {
-         console.error('[Forward Error]', err.message);
-       }
-     };
+     // Patch reply
+  const originalReply = message.reply.bind(message);
+  message.reply = async function patchedReply(content) {
+    if (!isWhatsAppReady) {
+      console.warn('[WAIT] WhatsApp not ready — skipping reply:', content);
+      return;
     }
+
+    // 💡 Add diagnostics here
+    console.log("From:", message.from);
+    console.log("Author:", message.author);
+    console.log("Is from me?", message.fromMe);
+    console.log("Message type:", message.type);
+
+    try {
+      console.log("Attempting to reply..");
+      await originalReply(content);
+      console.log("Reply sent");
+    } catch (err) {
+      console.error('[Reply Error]', err.message);
+    }
+  };
 
 
 
@@ -575,7 +555,11 @@ client.on('message', async message => {
 
     // Ping test
     if (textLower === '!ping') {
+      console.log("Ping command triggered");
+        console.log("isWhatAppReady: ",isWhatsAppReady);
+        console.log("Attempting to reply..");
         message.reply("Pong!!! Arisu system operational.");
+        console.log("Reply sent");
     }
 
     // About command
