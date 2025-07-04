@@ -154,7 +154,7 @@ if (!fs.existsSync(billsPath)) fs.writeFileSync(billsPath, '[]');
 if (!fs.existsSync(eventsPath)) fs.writeFileSync(eventsPath, '[]');
 
 
-
+let isWhatsAppReady = false;
 
 client.on('qr', qr => {
     qrcode.generate(qr, { small: true });
@@ -178,12 +178,17 @@ app.listen(PORT, () => {
 });
 
 
-let isWhatsAppReady = false;
 
-client.on('ready', () => {
+
+client.on('ready', async () => {
+  console.log('🟢 Arisu system is online sensei ~!!!');
+  // Delay to avoid race conditions with internal WhatsApp comms
+  setTimeout(() => {
     isWhatsAppReady = true;
-    console.log('🟢 Arisu system is online sensei ~!!!');
+    console.log('✅ WhatsApp comms fully ready~!');
+  }, 3000); // 3 seconds delay before allowing replies
 });
+
 
 client.on('disconnected', ()=> {
   isWhatsAppReady = false;
@@ -400,20 +405,52 @@ client.on('message', async message => {
   console.log("Lowercased text:", textLower);
 
 
-     // ✅ Patch reply method on the current message
+    
+   // Patch .reply
     const originalReply = message.reply.bind(message);
     message.reply = async function patchedReply(content) {
-    if (!isWhatsAppReady) {
-      console.warn('[WAIT] WhatsApp not ready — skipping reply:', content);
-      return;
-    }
-    try {
-      await originalReply(content);
-    } catch (err) {
-      console.error('[Reply Error]', err.message);
-    }
+     if (!isWhatsAppReady) {
+       console.warn('[WAIT] WhatsApp not ready — skipping reply:', content);
+       return;
+     }
+     try {
+       await originalReply(content);
+     } catch (err) {
+       console.error('[Reply Error]', err.message);
+     }
     };
-  
+
+    // Patch .react
+    const originalReact = message.react.bind(message);
+    message.react = async function patchedReact(emoji) {
+      if (!isWhatsAppReady) {
+        console.warn('[WAIT] WhatsApp not ready — skipping react:', emoji);
+        return;
+      }
+      try {
+        await originalReact(emoji);
+      } catch (err) {
+        console.error('[React Error]', err.message);
+  }
+    };
+
+    // Patch .forward (if used)
+    if (message.forward) {
+     const originalForward = message.forward.bind(message);
+     message.forward = async function patchedForward(chatId) {
+       if (!isWhatsAppReady) {
+         console.warn('[WAIT] WhatsApp not ready — skipping forward');
+         return;
+       }
+       try {
+         await originalForward(chatId);
+       } catch (err) {
+         console.error('[Forward Error]', err.message);
+       }
+     };
+    }
+
+
 
     
     // Load AFK data
