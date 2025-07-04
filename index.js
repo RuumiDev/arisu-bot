@@ -178,8 +178,17 @@ app.listen(PORT, () => {
 });
 
 
+let isWhatsAppReady = false;
+
 client.on('ready', () => {
+    isWhatsAppReady = true;
     console.log('🟢 Arisu system is online sensei ~!!!');
+});
+
+client.on('disconnected', ()=> {
+  isWhatsAppReady = false;
+  console.warn('🔴 S-Sensei! WhatsApp client disconnected!!');
+
 });
 
 require('./events/onJoinArisu')(client);
@@ -389,6 +398,23 @@ client.on('message', async message => {
   
   console.log("Incoming textraw:", textRaw);
   console.log("Lowercased text:", textLower);
+
+
+     // ✅ Patch reply method on the current message
+    const originalReply = message.reply.bind(message);
+    message.reply = async function patchedReply(content) {
+    if (!isWhatsAppReady) {
+      console.warn('[WAIT] WhatsApp not ready — skipping reply:', content);
+      return;
+    }
+    try {
+      await originalReply(content);
+    } catch (err) {
+      console.error('[Reply Error]', err.message);
+    }
+    };
+  
+
     
     // Load AFK data
     let afkData = {};
