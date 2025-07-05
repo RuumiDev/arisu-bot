@@ -118,7 +118,9 @@ const qrcode = require('qrcode-terminal');
 
 
 const client = new Client({ // This uses local storage to remember login session
-   authStrategy: new LocalAuth(),
+   authStrategy: new LocalAuth({
+    dataPath: '/data'
+   }),
     puppeteer: {
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -339,16 +341,19 @@ function normalizeId(id) {
 }
 
 
+
 // Anime Reactions Function
 async function animeReactionCommand(message, textLower, commandName, endpoint, actionText, isNyaaMode, uwuify, client) {
-  const mentioned = message.mentionedIds;
-  const args = textLower.trim().split(' ');
-  let targetText = mentioned.length > 0 ? args.slice(1).join(' ') : 'you, Sensei~';
-  
-  if (uwuify) targetText = uwuify(targetText);
+  const mentions = message.mentionedIds || [];
+  const contacts = await Promise.all(mentions.map(id => client.getContactById(id)));
+  const mentionTags = contacts.map(c => `@${c.id.user}`);
+  const targetText = mentionTags.length > 0 ? mentionTags.join(', ') : 'you, Sensei~';
+
+  let finalTargetText = targetText;
+  if (uwuify) finalTargetText = uwuify(finalTargetText);
   if (isNyaaMode) actionText = actionText + '~nyaa';
 
-  const actionLine = `*${actionText} ${targetText}*`;
+  const actionLine = `*${actionText} ${finalTargetText}*`;
 
   const loadingMsg = await message.reply("Arisu is summoning waifu magic~ 💫");
 
@@ -359,7 +364,8 @@ async function animeReactionCommand(message, textLower, commandName, endpoint, a
     console.log(`🎴 Waifu URL: ${imageUrl}`);
 
     await client.sendMessage(message.from, await MessageMedia.fromUrl(imageUrl), {
-      caption: actionLine
+      caption: actionLine,
+      mentions: contacts
     });
 
     console.log("✅ Sent waifu image successfully!");
@@ -369,6 +375,8 @@ async function animeReactionCommand(message, textLower, commandName, endpoint, a
     message.reply("Uwaa~ I couldn’t send the waifu image, Sensei TwT");
   }
 }
+
+
 
 
 
