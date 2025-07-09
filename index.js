@@ -2523,59 +2523,100 @@ else if (/\.{2,}/.test(textRaw)) tone = 'calm';
 else if (/\?{2,}/.test(textRaw)) tone = 'confused';
 
 // 🎯 Pattern matching
-const casualMentionMatch = textRaw.match(/^(arisu+)[\s!?~.,]*(.*)$/i);
-const calledCasually = /^arisu[\s!?.~]*$/i.test(textLower);
-const mentionedWithMessage = /^arisu[\s:]/i.test(textLower);
+// Pattern matching for Arisu-AI triggers
+const casualMentionMatch = textRaw.match(/^(arisu+)[\s:!?~.,]*(.*)$/i); // "Arisuuu makan dulu"
+const calledCasually = /^arisu[\s!?.~]*$/i.test(textLower);             // "Arisu~!"
+const mentionedWithMessage = /^arisu[\s:]/i.test(textLower);            // "Arisu: hi"
+const isTagged = message.mentionedIds?.includes(client.info.wid._serialized);
+
+//  Check if message is a reply to Arisu
+let replyingToArisu = false;
+if (message.hasQuotedMsg) {
+  const quoted = await message.getQuotedMessage();
+  replyingToArisu = quoted.fromMe;
+}
+
 
 // ✅ 1. Just "Arisu!"
 if (calledCasually) {
   console.log("👋 Arisu called casually");
 
-  const replies = {
-    neutral: [
-      "Hai hai, Sensei? I'm here~",
-      "Yes yes, Arisu kat sini je~",
-      "Hehe, standby mode aktif~",
-    ],
-    excited: [
-      "Wahhh!! Arisu is on it!!",
-      "Quest accepted! 🎯",
-      "Present! Arisu datang bawa buff~",
-    ],
-    calm: [
-      "Mmm... sleepy mode off...",
-      "Humuu~ Did I hear something?",
-    ],
-    confused: [
-      "Eh? Repeat sikit boleh? Hehe~",
-      "Humuu... Arisu lost signal jap 😵",
-    ]
-  };
+ const replies = {
+  neutral: [
+    "Hai hai, Sensei~ Arisu's here~",
+    "Yes yes, Arisu kat sini je~",
+    "Hehe, standby mode aktif~",
+    "Yup yup sensei, panggil Arisu ke?~",
+    "Hmmm? Did someone call me?",
+    "Arisu's here, desu-wa~",
+  ],
+  excited: [
+    "Yoshaaa~ Arisu reporting for duty~! 💫",
+    "Hehe, Arisu tengah fokus dekat Sensei sekarang~ ✨",
+    "Hai haii! Semangat Arisu membara! 🔥",
+    "Arisu full power mode activated~! 💥",
+    "Eeehh?! I’m here, I’m here!!",
+    "Affirmative! Arisu dah ready sangat ni!!"
+  ],
+  calm: [
+    "Mmm... sleepy mode off... 💤",
+    "Humuu~ Arisu dengar perlahan je...",
+    "Aaa~ relax dulu baru jawab~",
+    "Huu~ tengah lepak tapi Arisu on standby~ ☕",
+  ],
+  confused: [
+    "Eh? Repeat sikit boleh? Hehe~",
+    "Humuu... Arisu lost signal jap 😵",
+    "Aiyo... tak clear sangat mesej tadi~?",
+    "Eeehh? Arisu pening kejap~ 😖",
+  ]
+};
+
 
   const pool = replies[tone] || replies.neutral;
   const chosen = pool[Math.floor(Math.random() * pool.length)];
   return message.reply(chosen);
 }
 
-// ✅ 2. "Arisu, message here" or "Arisuuu makan dulu"
-if (mentionedWithMessage || casualMentionMatch) {
-  const promptText = mentionedWithMessage
-    ? textRaw.replace(/^arisu[\s:]+/i, '').trim()
-    : (casualMentionMatch?.[2] || "").trim();
+
+// ✅ 2. Arisu casual mention, @mention, or reply to her message
+const arisuMentioned = mentionedWithMessage || casualMentionMatch || replyingToArisu || isTagged;
+
+if (arisuMentioned) {
+  console.log("✅ Entering Arisu-AI response block...");
+
+  // Extract prompt
+ let promptText = '';
+
+if (mentionedWithMessage) {
+  promptText = textRaw.replace(/^arisu[\s:]+/i, '').trim();
+} else if (casualMentionMatch?.[2]) {
+  promptText = casualMentionMatch[2].trim();
+} else if (isTagged) {
+  // Remove Arisu's name from message if tagged
+  const meTag = `@${client.info.wid.user}`;
+  promptText = textRaw.replace(meTag, '').trim();
+} else if (replyingToArisu) {
+  promptText = textRaw.trim();
+}
+
+
 
   if (!promptText) {
+    console.log("👋 Arisu called casually");
     return message.reply("Hai hai, Sensei! I'm listening~");
   }
 
   try {
     const lang = detectLang(promptText);
-    const response = await getArisuReply(promptText, tone, lang); // your AI logic
+    const response = await getArisuReply(promptText, tone, lang);
     return message.reply(response);
   } catch (err) {
     console.error("💥 Arisu AI error:", err);
     return message.reply("A-Arisu's brain glitched... Please try again later, Sensei!");
   }
 }
+
 
 
 
