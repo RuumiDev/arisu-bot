@@ -2567,7 +2567,7 @@ if (calledCasually) {
   confused: [
     "Eh? Repeat sikit boleh? Hehe~",
     "Humuu... Arisu lost signal jap 😵",
-    "Aiyo... tak clear sangat mesej tadi~?",
+    "Eheh.. tak clear sangat mesej tadi~?",
     "Eeehh? Arisu pening kejap~ 😖",
   ]
 };
@@ -2608,13 +2608,20 @@ if (mentionedWithMessage) {
   }
 
   try {
-    const lang = detectLang(promptText);
-    const response = await getArisuReply(promptText, tone, lang);
-    return message.reply(response);
-  } catch (err) {
-    console.error("💥 Arisu AI error:", err);
-    return message.reply("A-Arisu's brain glitched... Please try again later, Sensei!");
-  }
+  const lang = detectLang(promptText);
+  const response = await getArisuReply(promptText, tone, lang);
+
+  // 🧽 Clean up formatting for WhatsApp
+  const formattedResponse = response
+    .replace(/\*\*(.*?)\*\*/g, '*$1*')
+    .replace(/_(.*?)_/g, '_$1_');
+
+  return message.reply(formattedResponse);
+} catch (err) {
+  console.error("💥 Arisu AI error:", err);
+  return message.reply("A-Arisu's brain glitched... Please try again later, Sensei!");
+}
+
 }
 
 
