@@ -2547,7 +2547,7 @@ if (calledCasually) {
     "Yes yes, Arisu kat sini je~",
     "Hehe, standby mode aktif~",
     "Yup yup sensei, panggil Arisu ke?~",
-    "Hmmm? Did someone call me?",
+    "Mhmm, what's up sensei~?",
     "Arisu's here, desu-wa~",
   ],
   excited: [
@@ -2567,8 +2567,8 @@ if (calledCasually) {
   confused: [
     "Eh? Repeat sikit boleh? Hehe~",
     "Humuu... Arisu lost signal jap 😵",
-    "Eheh.. tak clear sangat mesej tadi~?",
-    "Eeehh? Arisu pening kejap~ 😖",
+    "Eheh.. kenapa tu~?",
+    "Eeehh? Arisu pada buat salah ke?~ 😖",
   ]
 };
 
