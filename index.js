@@ -119,6 +119,7 @@ const qrcode = require('qrcode-terminal');
 
 const client = new Client({ // This uses local storage to remember login session
    authStrategy: new LocalAuth({
+    clientId: 'arisu',
     dataPath: '/data'
    }),
     puppeteer: {
@@ -175,7 +176,7 @@ app.get('/', (req, res) => {
   res.send("Yossha~! Arisu's here and running! 💙");
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Arisu is listening on port ${PORT}~! 🌸`);
 });
 
@@ -566,7 +567,7 @@ client.on('message', async message => {
       console.log("Ping command triggered");
         console.log("isWhatAppReady: ",isWhatsAppReady);
         console.log("Attempting to reply..");
-        message.reply("Pong!!! Arisu system operational.");
+        message.reply("*Pong!!!* Arisu system operational.");
         console.log("Reply sent");
     }
 
@@ -1142,7 +1143,7 @@ client.on('message', async message => {
                  if (!billStats[bill]) {
                      billStats[bill] = { paid: [], unpaid: [] };
                  }
-                 billStats[bill][status === 'paid' ? 'paid' : 'unpaid'].push(member);
+                 billStats[bill][status === 'paid' ? 'paid' : 'unpaid'].push(RentAI.formatName(member));
              }
          }
 
@@ -1153,7 +1154,7 @@ client.on('message', async message => {
              const unpaidBar = '❌'.repeat(unpaid.length);
 
              lines.push(
-                 `\n${getBillEmoji(bill)} ${bill}`,
+                 `\n${getBillEmoji(bill)} ${RentAI.formatName(bill)}`,
                  `✅ Paid: ${paid.length} / ${paid.length + unpaid.length}`,
                  `❌ Unpaid: ${unpaid.length}`,
                  unpaid.length > 0 ? `• ${unpaid.join(', ')}` : `• All paid, Sensei!`
@@ -1275,9 +1276,9 @@ client.on('message', async message => {
         if (bills && typeof bills === 'object') {
             const status = bills[billName];
             if (status === 'paid') {
-                paid.push(member);
+                paid.push(RentAI.formatName(member));
             } else if (status === 'unpaid') {
-                unpaid.push(member);
+                unpaid.push(RentAI.formatName(member));
             }
         }
     }
@@ -1286,7 +1287,7 @@ client.on('message', async message => {
         return message.reply(`⚠ The bill "*${billName}*" isn’t listed for anyone in ${currentMonth}, Sensei.`);
     }
 
-    let reply = `📊 *Rent Status for ${currentMonth} – ${billName}*\n`;
+    let reply = `📊 *Rent Status for ${currentMonth} – ${RentAI.formatName(billName)}*\n`;
 
     if (paid.length > 0) {
         reply += `\n✅ *Paid:*\n• ${paid.join('\n• ')}`;
@@ -1513,10 +1514,10 @@ client.on('message', async message => {
 
     let response = "";
     if (rentAIResult.intent === "paid") {
-      response = `Hai Hai~! Arisu dah update status *${billList}* untuk:\n• ${userList}, Sensei~ ✨ Anything else nak update?`;
-    } else {
-      response = `Yossha~ Noted! ✅ Arisu dh set status *UNPAID* untuk *${billList}*:\n• ${userList}, jangan risau Sensei~!`;
-    }
+       response = `Mhm, Wakatta! Arisu dah update *${billList}* untuk:\n\n• *${userList}* ✨\n\nThank you for the update, Sensei~ Arisu appreciates it a lot! Otsu~ 🌸`;
+     } else {
+       response = `Yoshh! Noted ✅ Arisu set *UNPAID* for *${billList}*:\n\n• *${userList}* 📝\n\nThanks for keeping Arisu in the loop, Sensei~ Otsu~ ☁`;
+     }
 
     return message.reply(response);
   } else {
