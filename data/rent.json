@@ -35,38 +35,92 @@
   },
   "July 2025": {
     "izwan": {
+      "electricity": "paid",
+      "wifi": "paid",
+      "water": "paid",
+      "gas": "paid"
+    },
+    "akmal": {
+      "electricity": "paid",
+      "wifi": "paid",
+      "water": "paid",
+      "gas": "paid"
+    },
+    "mukhridz": {
+      "electricity": "paid",
+      "wifi": "paid",
+      "water": "paid",
+      "gas": "paid"
+    },
+    "aiman": {
+      "electricity": "paid",
+      "water": "paid",
+      "gas": "paid"
+    },
+    "daniel": {
+      "electricity": "paid",
+      "wifi": "paid",
+      "water": "paid",
+      "gas": "paid"
+    },
+    "dennis": {
+      "electricity": "paid",
+      "wifi": "paid",
+      "water": "paid",
+      "gas": "paid"
+    },
+    "harith": {
+      "electricity": "paid",
+      "wifi": "paid",
+      "water": "unpaid",
+      "gas": "paid"
+    }
+  },
+  "August 2025": {
+    "izwan": {
       "electricity": "unpaid",
       "wifi": "paid",
-      "water": "paid"
+      "water": "unpaid",
+      "sewer": "paid"
     },
     "akmal": {
       "electricity": "unpaid",
       "wifi": "paid",
-      "water": "paid"
+      "water": "unpaid",
+      "sewer": "unpaid"
     },
     "mukhridz": {
       "electricity": "unpaid",
       "wifi": "paid",
-      "water": "paid"
+      "water": "unpaid",
+      "sewer": "unpaid"
     },
     "aiman": {
       "electricity": "unpaid",
-      "water": "paid"
+      "water": "unpaid",
+      "sewer": "paid"
     },
     "daniel": {
       "electricity": "unpaid",
       "wifi": "paid",
-      "water": "paid"
+      "water": "unpaid",
+      "sewer": "unpaid"
     },
     "dennis": {
       "electricity": "unpaid",
-      "wifi": "paid",
-      "water": "paid"
+      "wifi": "unpaid",
+      "water": "unpaid",
+      "sewer": "unpaid"
     },
     "harith": {
       "electricity": "unpaid",
-      "wifi": "paid",
-      "water": "paid"
+      "water": "unpaid",
+      "sewer": "unpaid"
+    },
+    "khairin": {
+      "electricity": "unpaid",
+      "water": "unpaid",
+      "sewer": "unpaid"
     }
   }
 }
