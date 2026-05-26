@@ -7,7 +7,7 @@
   },
   "keywords": [],
   "author": "RuumiDev",
-  "license": "ISC",
+  "license": "MIT",
   "description": "Arisu-bot is a dedicated WhatsApp bot designed to assist users with various tasks, including rent tracking, welcome messages, and more.",
   "dependencies": {
     "axios": "^1.10.0",
