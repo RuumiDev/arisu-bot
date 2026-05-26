@@ -23,9 +23,7 @@ This project uses:
 - OpenAI/chatgpt packages for optional AI integrations
 - Express for lightweight web endpoints (optional)
 
-<p align="center">
-  <img src="assets/arisu-preview.gif" alt="Arisu bot preview" width="680">
-</p>
+
 
 ---
 
