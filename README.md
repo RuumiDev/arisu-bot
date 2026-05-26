@@ -1,7 +1,7 @@
 # Arisu Bot • WhatsApp Assistant inspired by Tendou Arisu
 
 <p align="center">
-  <img src="assets/arisu-banner.png" alt="Arisu banner" width="820">
+  <img src="assets/arisubanner.gif" border="0" style="border-radius: 10px;" alt="Arisu banner" width="520" height="200">
 </p>
 
 <p align="center">
