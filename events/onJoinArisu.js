@@ -12,10 +12,19 @@ module.exports = (client) => { client.on('group_join', async (notification) => {
 
     setTimeout(async () => {
       try {
-        await client.sendMessage(chat.id._serialized, softIntro);
+        // Get the chat object and send message directly
+        const chatObj = await client.getChatById(chat.id._serialized);
+        await chatObj.sendMessage(softIntro);
         console.log("✅ Soft intro message sent.");
       } catch (sendErr) {
         console.error("❌ Failed to send Arisu's intro message:", sendErr);
+        // Fallback: try a simple approach if the above fails
+        try {
+          console.log("🔄 Trying fallback approach...");
+          await client.sendMessage(chat.id._serialized, softIntro);
+        } catch (fallbackErr) {
+          console.error("❌ Fallback also failed:", fallbackErr);
+        }
       }
     }, 5000); // wait 5 seconds
   }

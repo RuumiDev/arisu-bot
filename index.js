@@ -117,16 +117,36 @@ const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 
 
-const client = new Client({ // This uses local storage to remember login session
-   authStrategy: new LocalAuth({
+const isDocker = !!process.env.PUPPETEER_EXECUTABLE_PATH;
+
+// Determine session path - use local directory on Windows
+const sessionPath = isDocker ? '/data' : './session-data';
+console.log('📁 Session path:', sessionPath);
+
+// Ensure session directory exists
+if (!fs.existsSync(sessionPath)) {
+  console.log('📁 Creating session directory:', sessionPath);
+  fs.mkdirSync(sessionPath, { recursive: true });
+}
+
+const client = new Client({
+  authStrategy: new LocalAuth({
     clientId: 'arisu',
-    dataPath: '/data'
-   }),
-    puppeteer: {
+    dataPath: sessionPath
+  }),
+  puppeteer: {
+    executablePath: isDocker
+      ? process.env.PUPPETEER_EXECUTABLE_PATH // Fly/Docker
+      : require('puppeteer').executablePath(), // Local (use bundled Chromium)
     headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  }
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+    ],
+  }
 });
+
 
 
 
@@ -160,8 +180,23 @@ if (!fs.existsSync(eventsPath)) fs.writeFileSync(eventsPath, '[]');
 let isWhatsAppReady = false;
 
 client.on('qr', qr => {
+    console.log('📱 QR Code generated sensei, please scan with WhatsApp mobile app');
     qrcode.generate(qr, { small: true });
-    console.log('☑ Code Accepted, Initializing . . .');
+    console.log('☑ Waiting for QR code scan...');
+});
+
+client.on('authenticated', () => {
+    console.log('✅ WhatsApp authentication successful!');
+});
+
+client.on('ready', () => {
+    console.log('🚀 Sensei, WhatsApp client is ready!');
+    isWhatsAppReady = true;
+});
+
+client.on('disconnected', (reason) => {
+    console.log('❌ Sensei, WhatsApp client disconnected!!:', reason);
+    isWhatsAppReady = false;
 });
 
 
@@ -364,7 +399,7 @@ async function animeReactionCommand(message, textLower, commandName, endpoint, a
 
     console.log(`🎴 Waifu URL: ${imageUrl}`);
 
-    await client.sendMessage(message.from, await MessageMedia.fromUrl(imageUrl), {
+    await message.reply(await MessageMedia.fromUrl(imageUrl), message.from, {
       caption: actionLine,
       mentions: contacts
     });
@@ -1737,7 +1772,7 @@ client.on('message', async message => {
                     : `Here's your ${mode.toUpperCase()} waifu, Sensei~ !`;
 
                 message.reply(finalReply);
-                client.sendMessage(message.from, media);
+                message.reply(media);
             }, 2500); // 2.5 seconds delay
         })
         .catch(() => {
@@ -1831,13 +1866,20 @@ client.on('message', async message => {
         return message.reply(failReply[Math.floor(Math.random() * failReply.length)]);
       }
 
-      const media = await quoted.downloadMedia();
-
       try {
+        const media = await quoted.downloadMedia();
+        
+        // Validate media type
+        if (!media.mimetype.startsWith('image/')) {
+          return message.reply("Ehh~ That's not an image, Sensei! Please reply to a photo~ 📸");
+        }
+
         const stickerBuffer = await convertToWebpSticker(media);
         const stickerMedia = new MessageMedia("image/webp", stickerBuffer.toString("base64"));
+        stickerMedia.filename = "sticker.webp";
 
-        await client.sendMessage(message.from, stickerMedia, {
+        // Send the sticker
+        await message.reply(stickerMedia, message.from, {
           sendMediaAsSticker: true,
           stickerAuthor: "RuumiDev",
           stickerName: "Arisu-bot",
@@ -1848,7 +1890,7 @@ client.on('message', async message => {
           "All done! Here's your shiny new sticker! 🌟",
           "Yosh! Your image has leveled up into a sticker~ Henshin~! 🪄"
         ];
-        return message.reply(successReply[Math.floor(Math.random() * successReply.length)]);
+        await message.reply(successReply[Math.floor(Math.random() * successReply.length)]);
       } catch (err) {
         console.error("Sticker conversion error:", err);
         const errorReply = [
@@ -1889,7 +1931,8 @@ client.on('message', async message => {
 
       const randomCaption = responses[Math.floor(Math.random() * responses.length)];
 
-      await client.sendMessage(message.from, image, { caption: randomCaption });
+      // Send image with caption using message.reply
+      await message.reply(image, message.from, { caption: randomCaption });
     } catch (err) {
       console.error("🔴 Arisu failed to convert sticker:", err);
       return message.reply("Uwaa~ Something went wrong! Maybe try again with a different sticker? 🛠");
@@ -2633,4 +2676,8 @@ if (mentionedWithMessage) {
 
 
 
+console.log('⏳ Initializing WhatsApp client...');
+console.log('ENV PUPPETEER_EXECUTABLE_PATH:', process.env.PUPPETEER_EXECUTABLE_PATH || '(not set)');
+console.log('Running in Docker mode?', !!process.env.PUPPETEER_EXECUTABLE_PATH);
 client.initialize();
+

@@ -1,28 +1,40 @@
-.env
-node_modules/
 # Dependencies
 node_modules/
 
-# Secrets and environment configs
+# Secrets and local environment
 .env
+.env.local
+.env.*.local
 
 # Logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-
+pnpm-debug.log*
 
 # OS
-.DS_Store        # macOS
-Thumbs.db        # Windows
+.DS_Store
+Thumbs.db
 
-# Editor
+# Editor/IDE
 .vscode/
 .idea/
 
-# Runtime output 
+# Runtime/build outputs
 dist/
 build/
-*.log
+coverage/
+.cache/
 
+# WhatsApp auth/session/cache (runtime-generated)
+.wwebjs_auth/
+.wwebjs_cache/
+session-data/
+
+# Bot backups/runtime dumps
+arisu-session-backup-*/
+data/rent-export.json
+*.tmp
+temp.gif
+reaction.mp4
